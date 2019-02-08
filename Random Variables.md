@@ -112,3 +112,14 @@ If $X_i,\quad i=1,\cdots,n$ are independent random variables, the above formula 
 $$
 \operatorname{Var}\left(\sum_{i=1}^{n} X_{i}\right)=\sum_{i=1}^{n} \operatorname{Var}\left(X_{i}\right)
 $$
+
+> **Definition**:
+>
+> If $X_{1}, \dots, X_{n}​$ are independent and identically distributed, then the random variable $\overline{X}=\sum_{i=1}^{n} X_{i} / n​$ is called the **Sample mean**
+
+The following are important properties of sample mean.
+
+1. $E[\overline{X}]=\mu$
+2. $\operatorname{Var}(\overline{X})=\sigma^{2} / n$
+3. $\operatorname{Cov}\left(\overline{X}, X_{i}-\overline{X}\right)=0, i=1, \ldots, n$
+

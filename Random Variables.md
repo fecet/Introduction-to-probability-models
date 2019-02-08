@@ -123,3 +123,20 @@ The following are important properties of sample mean.
 2. $\operatorname{Var}(\overline{X})=\sigma^{2} / n$
 3. $\operatorname{Cov}\left(\overline{X}, X_{i}-\overline{X}\right)=0, i=1, \ldots, n$
 
+##### Variance of a Binomial Random Variable
+
+Compute the variance of a binomial random variable $X$ with parameters $n$ and $p$.
+$$
+X=X_{1}+\dots+X_{n}
+$$
+where the $X_i$ are independent binomial random variables such that:
+$$
+X_{i}=\left\{\begin{array}{ll}{1,} & {\text { if the } i \text { th trial is a success }} \\ {0,} & {\text { otherwise }}\end{array}\right.
+$$
+Hence,
+$$
+\operatorname{Var}(X)=\operatorname{Var}\left(X_{1}\right)+\cdots+\operatorname{Var}\left(X_{n}\right)=n(p-p^2)=np(1-p)
+$$
+
+##### Sampling from a Finite Population: The Hypergeometric
+

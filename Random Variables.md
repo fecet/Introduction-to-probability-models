@@ -272,45 +272,9 @@ The moment generating function $\phi(t)$ of the random variable $X$ is defined f
 $$
 \phi(t) =E\left[e^{t x}\right] =\left\{\begin{array}{ll}{\sum_{x} e^{t x} p(x),} & {\text { if } X \text { is discrete }} \\ {\int_{-\infty}^{\infty} e^{t x} f(x) d x,} & {\text { if } X \text { is continuous }}\end{array}\right.
 $$
-We call $\phi(t)$ the **moment generating function** because all of the moments of $X$ can be obtained by differentiating $\phi(t)$.
+We call $\phi(t)​$ the **moment generating function** because all of the moments of $X​$ can be obtained by differentiating $\phi(t)​$.
 $$
 \phi^{n}(0)=E\left[X^{n}\right], \quad n \geqslant 1
-$$
-
-##### The Binomial Distribution with Parameters n and p
-
-$$
-\begin{aligned} \phi(t) &=E\left[e^{t X}\right] \\ &=\sum_{k=0}^{n} e^{t k} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k} \\ &=\sum_{k=0}^{n} \left( \begin{array}{l}{n} \\ {k}\end{array}\right)\left(p e^{t}\right)^{k}(1-p)^{n-k} \\ &=\left(p e^{t}+1-p\right)^{n} \end{aligned}
-$$
-
-Hence:
-$$
-\phi^{\prime}(t)=n\left(p e^{t}+1-p\right)^{n-1} p e^{t}\\
-E[X]=\phi^{\prime}(0)=n p
-$$
- Differentiating a second time yields:
-$$
-\phi^{\prime \prime}(t)=n(n-1)\left(p e^{t}+1-p\right)^{n-2}\left(p e^{t}\right)^{2}+n\left(p e^{t}+1-p\right)^{n-1} p e^{t}\\
-E\left[X^{2}\right]=\phi^{\prime \prime}(0)=n(n-1) p^{2}+n p
-$$
-Thus, the variance of $X$ is given
-$$
-\begin{aligned} \operatorname{Var}(X) &=E\left[X^{2}\right]-(E[X])^{2} \\ &=n(n-1) p^{2}+n p-n^{2} p^{2} \\ &=n p(1-p) \end{aligned}
-$$
-
-##### The Poisson Distribution with Mean $\lambda$
-
-$$
-\begin{aligned} \phi(t) &=E\left[e^{t X}\right] \\ &=\sum_{n=0}^{\infty} \frac{e^{t n} e^{-\lambda} \lambda^{n}}{n !} \\ &=e^{-\lambda} \sum_{n=0}^{\infty} \frac{\left(\lambda e^{t}\right)^{n}}{n !} \\ &=e^{-\lambda} e^{\lambda e^{t}} \\ &=\exp \left\{\lambda\left(e^{t}-1\right)\right\} \end{aligned}
-$$
-
-Differentiation yields
-$$
-\begin{aligned} \phi^{\prime}(t) &=\lambda e^{t} \exp \left\{\lambda\left(e^{t}-1\right)\right\} \\ \phi^{\prime \prime}(t) &=\left(\lambda e^{t}\right)^{2} \exp \left\{\lambda\left(e^{t}-1\right)\right\}+\lambda e^{t} \exp \left\{\lambda\left(e^{t}-1\right)\right\} \end{aligned}
-$$
-and so 
-$$
-\begin{aligned} E[X] &=\phi^{\prime}(0)=\lambda \\ E\left[X^{2}\right] &=\phi^{\prime \prime}(0)=\lambda^{2}+\lambda \\ \operatorname{Var}(X) &=E\left[X^{2}\right]-(E[X])^{2} =\lambda \end{aligned}
 $$
 
 ##### Moment Generating Function for Some Common Distributions.
@@ -330,7 +294,7 @@ $$
 
 Another important result is that **the moment generating function uniquely determines the distribution.** That is, there exists a one-to-one correspondence between the moment generating function and the distribution function of a random variable.
 
-#### Poisson Paradigm
+##### Poisson Paradigm
 
 The number of successes in n trials that are either independent or at most weakly dependent is, when the trial success probabilities are all small, approximately a Poisson random variable.
 
@@ -361,4 +325,67 @@ Because the moment generating function of a sum of independent random variables 
 $$
 E\left[e^{t X}\right] \approx \prod_{i=1}^{n} \exp \left\{p_{i}\left(e^{t}-1\right)\right\}=\exp \left\{\sum_{i} p_{i}\left(e^{t}-1\right)\right\}
 $$
-The right side is the moment generating function of a Poisson random variable with $\sum_{i} p$.
+The right side is the moment generating function of a Poisson random variable with $\sum_{i} p​$.
+
+##### Laplace transform
+
+For a nonnegative random variable $X​$, it’s often convenient to define its **Laplace transform $g(t)​$ **,by
+$$
+g(t)=\phi(-t)=E\left[e^{-t X}\right] As in the case of moment generating functions, it remains true that nonnegative random variables that
+have the same Laplace transform must also have the same distribution.
+$$
+As in the case of moment generating functions, it remains true that nonnegative random variables that have the same Laplace transform must also have the same distribution.
+
+##### Joint Moment Generating Function
+
+ is also possible to define the joint moment generating function of two or more random variables. This is done as follows. For any n random variables $X_1,X_2,\cdots,X_n​$, the joint moment generating function, $\phi(t_1,...,t_n)​$, is defined for all real values of $t_1,...,t_n​$ by
+$$
+\phi\left(t_{1}, \ldots, t_{n}\right)=E\left[e^{\left(t_{1} X_{1}+\cdots+t_{n} X_{n}\right)}\right]
+$$
+It can be shown that $\phi(t_1,...,t_n)$ uniquely determines the joint distribution of $X_1,\cdots,X_n​$.
+
+##### The Multivariate Normal Distribution
+
+Let $Z_1,\cdots,Z_n$ be a set of independent standard normal random variables. If, for some constants $a_{ij}$ and $\mu_i$,
+$$
+\begin{aligned} X_{1} &=a_{11} Z_{1}+\cdots+a_{1 n} Z_{n}+\mu_{1} \\ X_{2} &=a_{21} Z_{1}+\cdots+a_{2 n} Z_{n}+\mu_{2} \\ & \vdots \\ X_{i} &=a_{i 1} Z_{1}+\cdots+a_{i n} Z_{n}+\mu_{i} \\ & \vdots \\ X_{m} &=a_{m 1} Z_{1}+\cdots+a_{m n} Z_{n}+\mu_{m} \end{aligned}
+$$
+The sum of independent normal random variables is itself a normal random variable, whose mean and variance given by
+$$
+\begin{aligned} E\left[X_{i}\right] &=\mu_{i} \\ \operatorname{Var}\left(X_{i}\right) &=\sum_{j=1}^{n} a_{i j}^{2} \end{aligned}
+$$
+Let us determine the joint moment generating function:
+$$
+\phi\left(t_{1}, \ldots, t_{m}\right)=E\left[\exp \left\{t_{1} X_{1}+\cdots+t_{m} X_{m}\right\}\right]
+$$
+Note $\sum_{i=1}^{m} t_{i} X_{i}$ is also normally distributed. 
+$$
+E\left[\sum_{i=1}^{m} t_{i} X_{i}\right]=\sum_{i=1}^{m} t_{i} \mu_{i}\\
+\operatorname{Var}\left(\sum_{i=1}^{m} t_{i} X_{i}\right)=\operatorname{Cov}\left(\sum_{i=1}^{m} t_{i} X_{i}, \sum_{j=1}^{m} t_{j} X_{j}\right)=\sum_{i=1}^{m} \sum_{j=1}^{m} t_{i} t_{j} \operatorname{Cov}\left(X_{i}, X_{j}\right)
+$$
+Recall that if $Y$ is a normal random variable with mean $\mu$ and variance $\sigma^2$, then
+$$
+E\left[e^{Y}\right]=\phi_{Y}\left.(t)\right|_{t=1}=e^{\mu+\sigma^{2} / 2}
+$$
+Thus
+$$
+\phi\left(t_{1}, \ldots, t_{m}\right)=\exp \left\{\sum_{i=1}^{m} t_{i} \mu_{i}+\frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} t_{i} t_{j} \operatorname{Cov}\left(X_{i}, X_{j}\right)\right\}
+$$
+
+##### Sample Variance
+
+Let $X_1,\cdots,X_n$ be independent and identically distributed random variables, each with mean $\mu$ and variance $σ^2$. The random variables $S^2$ defined by
+$$
+S^{2}=\sum_{i=1}^{n} \frac{\left(X_{i}-\overline{X}\right)^{2}}{n-1}
+$$
+is called the **Sample variance** of the data. 
+
+To compute $E(S^2)$, we use the identity: 
+$$
+\sum_{i=1}^{n}\left(X_{i}-\overline{X}\right)^{2}=\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}-n(\overline{X}-\mu)^{2}
+$$
+which is proven as follows:
+$$
+\begin{aligned} \sum_{i=1}^{n}\left(X_{i}-\overline{X}\right) &=\sum_{i=1}^{n}\left(X_{i}-\mu+\mu-\overline{X}\right)^{2} \\ &=\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}+n(\mu-\overline{X})^{2}+2(\mu-\overline{X}) \sum_{i=1}^{n}\left(X_{i}-\mu\right) \\ &=\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}+n(\mu-\overline{X})^{2}+2(\mu-\overline{X})(n \overline{X}-n \mu) \\ &=\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}+n(\mu-\overline{X})^{2}-2 n(\mu-\overline{X})^{2} \end{aligned}
+$$
+Hence

@@ -1,12 +1,12 @@
-## Random Variables
+# Random Variables
 
 > [TOC]
 
 
 
-### Jointly Distributed Random Variables
+## Jointly Distributed Random Variables
 
-#### Joint Distribution Functions
+### Joint Distribution Functions
 
 For any two random variables $X$ and $Y$, we define the *joint cumulative probability distribution function* of  $X$ and $Y$ by
 $$
@@ -51,7 +51,7 @@ $$
 \begin{aligned} E[g(X, Y)] &=\sum_{y} \sum_{x} g(x, y) p(x, y)\quad \quad \quad \quad\text { in the discrete case } \\ &=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) f(x, y) d x d y \quad \text { in the continuous case } \end{aligned}
 $$
 
-####  Independent Random Variables
+###  Independent Random Variables
 
 The random variables $X$ and $Y$ are said to be **independent** if, for all $a$, $b$
 $$
@@ -81,7 +81,7 @@ $$
 P\left\{X_{1} \leqslant a_{1}, X_{2} \leqslant a_{2}, \ldots, X_{n} \leqslant a_{n}\right\}=P\left\{X_{1} \leqslant a_{1}\right\} P\left\{X_{2} \leqslant a_{2}\right\} \cdots P\left\{X_{n} \leqslant a_{n}\right\}
 $$
 
-#####  Convolution
+####  Convolution
 
 It is often important to be able to calculate the distribution of $X + Y$ from the distributions of $X$ and $Y$ when $X$ and $Y$ are independent. 
 
@@ -96,7 +96,7 @@ $$
 \begin{aligned} f_{X+Y}(a) &=\frac{d}{d a} \int_{-\infty}^{\infty} F_{X}(a-y) g(y) d y \\ &=\int_{-\infty}^{\infty} \frac{d}{d a}\left(F_{X}(a-y)\right) g(y) d y \\ &=\int_{-\infty}^{\infty} f(a-y) g(y) d y \end{aligned}
 $$
 
-#### Covariance and Variance of Sums of Random Variables
+### Covariance and Variance of Sums of Random Variables
 
 The covariance of any two random variables $X​$ and $Y​$, denoted by  $\operatorname{Cov}(X,Y)​$, is defined by
 $$
@@ -107,7 +107,7 @@ Note that if $X​$ and $Y​$ are independent, then it follows that $\operatorn
 In general it can be shown that a positive value of $\operatorname{Cov}(X,Y)$ is an indication that $Y$ tends to increase as $X$ does, whereas a negative value indicates that $Y$ tends
 to decrease as $X$ increases.
 
-##### Properties of Covariance
+#### Properties of Covariance
 
 For any random variables $X,Y,Z$ and constant $C$
 
@@ -143,7 +143,7 @@ The following are important properties of sample mean.
 2. $\operatorname{Var}(\overline{X})=\sigma^{2} / n$
 3. $\operatorname{Cov}\left(\overline{X}, X_{i}-\overline{X}\right)=0, i=1, \ldots, n$
 
-##### Variance of a Binomial Random Variable
+#### Variance of a Binomial Random Variable
 
 Compute the variance of a binomial random variable $X$ with parameters $n$ and $p$.
 $$
@@ -158,7 +158,7 @@ $$
 \operatorname{Var}(X)=\operatorname{Var}\left(X_{1}\right)+\cdots+\operatorname{Var}\left(X_{n}\right)=n(p-p^2)=np(1-p)
 $$
 
-##### Sampling from a Finite Population: The Hypergeometric
+#### Sampling from a Finite Population: The Hypergeometric
 
 Consider a population of $N$ individuals, some of whom are in favor of a certain proposition. In particular suppose that $Np$ of them are in favor and $N −Np$ are opposed, where $p​$ is assumed to be unknown. 
 
@@ -198,7 +198,7 @@ $$
 P\left\{\sum_{i=1}^{n} X_{i}=k\right\}=\frac{\left( \begin{array}{c}{N p} \\ {k}\end{array}\right) \left( \begin{array}{c}{N-N p} \\ {n-k}\end{array}\right)}{\left( \begin{array}{l}{N} \\ {n}\end{array}\right)}
 $$
 
-##### Sum of Two Independent Uniform Random Variables
+#### Sum of Two Independent Uniform Random Variables
 
  If $X$ and $Y$ are independent random variables both uniformly distributed on $(0, 1)$, then calculate the probability density of $X+Y$:
 
@@ -223,7 +223,7 @@ $$
 f_{X+Y}(a)=\left\{\begin{array}{ll}{a,} & {0 \leqslant a \leqslant 1} \\ {2-a,} & {1<a<2} \\ {0,} & {\text { otherwise }}\end{array}\right.
 $$
 
-##### Sums of Independent Poisson Random Variables
+#### Sums of Independent Poisson Random Variables
 
 Let $X$ and $Y$ be independent Poisson random variables with respective means $\lambda_1$ and $\lambda_2$. Calculate the distribution of $X$ and $Y​$.
 
@@ -236,7 +236,7 @@ $$
 
 In words, $X_1+X_2$ has a Poisson distribution with mean $\lambda_1+\lambda_2$.
 
-####  Joint Probability Distribution of Functions of Random Variables
+###  Joint Probability Distribution of Functions of Random Variables
 
 Let $X_1​$ and $X_2​$ be jointly continuous random variables with joint probability density function $f(x_1,x_2)​$. It is sometimes necessary to obtain the joint distribution of the random variables $Y_1​$ and $Y_2​$ which arise as functions of $X_1​$ and $X_2​$ . Specifically, suppose that $Y_1 = g_1(X_1,X_2)​$ and $Y_2 = g_2(X_1,X_2)​$ for some functions $g_1​$ and $g_2​$.
 
@@ -266,7 +266,7 @@ $$
 J\left(x_{1}, \ldots, x_{n}\right)=\left| \begin{array}{llll}{\frac{\partial g_{1}}{\partial x_{1}}} & {\frac{\partial g_{1}}{\partial x_{2}}} & {\dots} & {\frac{\partial g_{1}}{\partial x_{n}}} \\ {\frac{\partial g_{2}}{\partial x_{1}}} & {\frac{\partial g_{2}}{\partial x_{2}}} & {\cdots} & {\frac{\partial g_{2}}{\partial x_{n}}} \\ {\frac{\partial g_{n}}{\partial x_{1}}} & {\frac{\partial g_{n}}{\partial x_{2}}} & {\cdots} & {\frac{\partial g_{n}}{\partial x_{n}}}\end{array}\right|
 $$
 
-#### Moment Generating Functions
+### Moment Generating Functions
 
 The moment generating function $\phi(t)$ of the random variable $X$ is defined for all values $t$ by
 $$
@@ -277,7 +277,7 @@ $$
 \phi^{n}(0)=E\left[X^{n}\right], \quad n \geqslant 1
 $$
 
-##### Moment Generating Function for Some Common Distributions.
+#### Moment Generating Function for Some Common Distributions.
 
 |     Discrete probability distribution      |                          PMF,$p(x)$                          |       Moment Generating Function,$\phi(x)$        | Mean          | Variance            |
 | :----------------------------------------: | :----------------------------------------------------------: | :-----------------------------------------------: | ------------- | ------------------- |
@@ -294,7 +294,7 @@ $$
 
 Another important result is that **the moment generating function uniquely determines the distribution.** That is, there exists a one-to-one correspondence between the moment generating function and the distribution function of a random variable.
 
-##### Poisson Paradigm
+#### Poisson Paradigm
 
 The number of successes in n trials that are either independent or at most weakly dependent is, when the trial success probabilities are all small, approximately a Poisson random variable.
 
@@ -327,7 +327,7 @@ E\left[e^{t X}\right] \approx \prod_{i=1}^{n} \exp \left\{p_{i}\left(e^{t}-1\rig
 $$
 The right side is the moment generating function of a Poisson random variable with $\sum_{i} p​$.
 
-##### Laplace transform
+#### Laplace Transform
 
 For a nonnegative random variable $X​$, it’s often convenient to define its **Laplace transform $g(t)​$ **,by
 $$
@@ -336,7 +336,7 @@ have the same Laplace transform must also have the same distribution.
 $$
 As in the case of moment generating functions, it remains true that nonnegative random variables that have the same Laplace transform must also have the same distribution.
 
-##### Joint Moment Generating Function
+#### Joint Moment Generating Function
 
  is also possible to define the joint moment generating function of two or more random variables. This is done as follows. For any n random variables $X_1,X_2,\cdots,X_n​$, the joint moment generating function, $\phi(t_1,...,t_n)​$, is defined for all real values of $t_1,...,t_n​$ by
 $$
@@ -344,7 +344,7 @@ $$
 $$
 It can be shown that $\phi(t_1,...,t_n)$ uniquely determines the joint distribution of $X_1,\cdots,X_n​$.
 
-##### The Multivariate Normal Distribution
+#### The Multivariate Normal Distribution
 
 Let $Z_1,\cdots,Z_n$ be a set of independent standard normal random variables. If, for some constants $a_{ij}$ and $\mu_i$,
 $$
@@ -372,7 +372,7 @@ $$
 \phi\left(t_{1}, \ldots, t_{m}\right)=\exp \left\{\sum_{i=1}^{m} t_{i} \mu_{i}+\frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} t_{i} t_{j} \operatorname{Cov}\left(X_{i}, X_{j}\right)\right\}
 $$
 
-##### Sample Variance
+#### Sample Variance
 
 Let $X_1,\cdots,X_n$ be independent and identically distributed random variables, each with mean $\mu$ and variance $σ^2$. The random variables $S^2$ defined by
 $$
@@ -398,5 +398,42 @@ That is
 $$
 E\left[S^{2}\right]=\sigma^{2}
 $$
-We will now determine the joint distribution of the sample mean $\overline{X} = i=1 Xi/n$ and the sample variance S2 when the Xi have a normal distribution.
+We will now determine the joint distribution of the sample mean $\overline{X} = \sum_{i=1}^{n} X_{i} / n​$ and the sample variance $S^2​$ when the $X_i​$ have a normal distribution. 
+
 To begin we need the concept of a chi-squared random variable.
+
+##### Chi-squared random variable
+
+If $Z_1,\cdots,Z_n​$ are independent standard normal random variables, then the random variable $ \sum_{i=1}^{n} Z_i^2​$ is said to be a **chi-squared random variable with $n​$ degrees of freedom**
+
+The moment generating function of $ \sum_{i=1}^{n} Z_i^2$ is calculated as follows:
+$$
+\begin{aligned} E\left[\exp \left\{t Z_{i}^{2}\right\}\right] &=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{t x^{2}} e^{-x^{2} / 2} d x \\ &=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-x^{2} / 2 \sigma^{2}} d x \quad \text { where } \sigma^{2}=(1-2 t)^{-1} \\ &=\sigma \\ &=(1-2 t)^{-1 / 2} \end{aligned}
+$$
+Hence
+$$
+E\left[\exp \left\{t \sum_{i=1}^{n} Z_{i}^{2}\right\}\right]=\prod_{i=1}^{n} E\left[\exp \left\{t Z_{i}^{2}\right\}\right]=(1-2 t)^{-n / 2}
+$$
+
+> If $X_1,\cdots,X_n$ are independent and identically distributed normal random variables with mean $\mu$ and variance $\sigma^2$, then the sample mean $\overline{X}$ and the sample variance $S^2$ are independent. $\overline{X}$ is a normal random variable with mean $\mu$ and variance $\frac{\sigma^2}{n}$, $(n-1) S^{2} / \sigma^{2}$ is a chi-squared random variable with $n-1$ degrees if freedom. 
+
+### Distribution of the number of events
+
+Consider any event $A_1,\cdots,A_n$, and $X$ is the number of the events succeed.Let
+$$
+S_k=\sum_{i_1<\cdots<i_k}P(A_{i_1},\cdots A_{i_k})
+$$
+Then
+$$
+P(X\geqslant k)=\sum_{j=k}^n (-1)^{k+j}\binom{j-1}{k-1}S_j
+$$
+The prove is as follows:
+
+### Limit Theorems
+
+#### Markov’s Inequality
+
+ If $X$ is a random variable that takes only nonnegative values, then for any value $a> 0$
+$$
+P\{X \geqslant a\} \leqslant \frac{E[X]}{a}
+$$

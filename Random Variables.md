@@ -389,3 +389,14 @@ $$
 \begin{aligned} \sum_{i=1}^{n}\left(X_{i}-\overline{X}\right) &=\sum_{i=1}^{n}\left(X_{i}-\mu+\mu-\overline{X}\right)^{2} \\ &=\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}+n(\mu-\overline{X})^{2}+2(\mu-\overline{X}) \sum_{i=1}^{n}\left(X_{i}-\mu\right) \\ &=\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}+n(\mu-\overline{X})^{2}+2(\mu-\overline{X})(n \overline{X}-n \mu) \\ &=\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}+n(\mu-\overline{X})^{2}-2 n(\mu-\overline{X})^{2} \end{aligned}
 $$
 Hence
+$$
+\begin{aligned} E\left[(n-1) S^{2}\right] &=\sum_{i=1}^{n} E\left[\left(X_{i}-\mu\right)^{2}\right]-n E\left[(\overline{X}-\mu)^{2}\right] \\ &=n \sigma^{2}-n \operatorname{Var}(\overline{X}) \\
+&=(n-1)\sigma^2
+\end{aligned}
+$$
+That is 
+$$
+E\left[S^{2}\right]=\sigma^{2}
+$$
+We will now determine the joint distribution of the sample mean $\overline{X} = i=1 Xi/n$ and the sample variance S2 when the Xi have a normal distribution.
+To begin we need the concept of a chi-squared random variable.

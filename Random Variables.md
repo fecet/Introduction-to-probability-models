@@ -214,7 +214,7 @@ For $0 \leqslant a \leqslant 1$, this yields
 $$
 f_{X+Y}(a)=\int_{0}^{a} d y=a
 $$
-For $1<a<2$, we get
+For $1<a<2​$, we get
 $$
 f_{X+Y}(a)=\int_{a-1}^{1} d y=2-a
 $$
@@ -244,7 +244,7 @@ Assume that the functions $g_1$ and $g_2$ satisfy the following conditions:
 
 1.  The equations $y_1 = g_1(x_1,x_2)$ and $y_2 = g_2(x_1,x_2)$ can be uniquely solved for $x_1$ and $x_2$ in terms of $y_1$ and $y_2$ with solutions given by, say, $x_1 =h_1(y_1,y_2)$, $x_2 = h_2(y_1,y_2)$.
 
-2. The functions $g_1$ and $g_2$ have continuous partial derivatives at all points $(x_1,x_2)$ and are such that the following $2\times2$ determinant at all points.
+2. The functions $g_1$ and $g_2$ have continuous partial derivatives at all points $(x_1,x_2)$ and are such that the following $2\times2​$ determinant at all points.
    $$
    J\left(x_{1}, x_{2}\right)=\left| \begin{array}{ll}{\frac{\partial g_{1}}{\partial x_{1}}} & {\frac{\partial g_{1}}{\partial x_{2}}} \\ {\frac{\partial g_{2}}{\partial x_{1}}} & {\frac{\partial g_{2}}{\partial x_{2}}}\end{array}\right| \equiv \frac{\partial g_{1}}{\partial x_{1}} \frac{\partial g_{2}}{\partial x_{2}}-\frac{\partial g_{1}}{\partial x_{2}} \frac{\partial g_{2}}{\partial x_{1}} \neq 0
    $$
@@ -253,3 +253,112 @@ Under these two conditions, $Y_1$ and $Y_2$ are jointly continuous with joint de
 $$
 f_{Y_{1}, Y_{2}}\left(y_{1}, y_{2}\right)=f_{X_{1}, X_{2}}\left(x_{1}, x_{2}\right)\left|J\left(x_{1}, x_{2}\right)\right|^{-1}
 $$
+
+For the joint density function of $Y_1,Y_2,\cdots,Y_n$,where 
+$$
+Y_1=g_1(X_1,X_2,\cdots,X_n)\\
+Y_2=g_2(X_1,X_2,\cdots,X_n)\\
+\cdots\\
+Y_n=g_n(X_1,X_2,\cdots,X_n)
+$$
+$X_1,X_2,\cdots,X_n$ is given random variables. The approach is the same:
+$$
+J\left(x_{1}, \ldots, x_{n}\right)=\left| \begin{array}{llll}{\frac{\partial g_{1}}{\partial x_{1}}} & {\frac{\partial g_{1}}{\partial x_{2}}} & {\dots} & {\frac{\partial g_{1}}{\partial x_{n}}} \\ {\frac{\partial g_{2}}{\partial x_{1}}} & {\frac{\partial g_{2}}{\partial x_{2}}} & {\cdots} & {\frac{\partial g_{2}}{\partial x_{n}}} \\ {\frac{\partial g_{n}}{\partial x_{1}}} & {\frac{\partial g_{n}}{\partial x_{2}}} & {\cdots} & {\frac{\partial g_{n}}{\partial x_{n}}}\end{array}\right|
+$$
+
+#### Moment Generating Functions
+
+The moment generating function $\phi(t)$ of the random variable $X$ is defined for all values $t$ by
+$$
+\phi(t) =E\left[e^{t x}\right] =\left\{\begin{array}{ll}{\sum_{x} e^{t x} p(x),} & {\text { if } X \text { is discrete }} \\ {\int_{-\infty}^{\infty} e^{t x} f(x) d x,} & {\text { if } X \text { is continuous }}\end{array}\right.
+$$
+We call $\phi(t)$ the **moment generating function** because all of the moments of $X$ can be obtained by differentiating $\phi(t)$.
+$$
+\phi^{n}(0)=E\left[X^{n}\right], \quad n \geqslant 1
+$$
+
+##### The Binomial Distribution with Parameters n and p
+
+$$
+\begin{aligned} \phi(t) &=E\left[e^{t X}\right] \\ &=\sum_{k=0}^{n} e^{t k} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k} \\ &=\sum_{k=0}^{n} \left( \begin{array}{l}{n} \\ {k}\end{array}\right)\left(p e^{t}\right)^{k}(1-p)^{n-k} \\ &=\left(p e^{t}+1-p\right)^{n} \end{aligned}
+$$
+
+Hence:
+$$
+\phi^{\prime}(t)=n\left(p e^{t}+1-p\right)^{n-1} p e^{t}\\
+E[X]=\phi^{\prime}(0)=n p
+$$
+ Differentiating a second time yields:
+$$
+\phi^{\prime \prime}(t)=n(n-1)\left(p e^{t}+1-p\right)^{n-2}\left(p e^{t}\right)^{2}+n\left(p e^{t}+1-p\right)^{n-1} p e^{t}\\
+E\left[X^{2}\right]=\phi^{\prime \prime}(0)=n(n-1) p^{2}+n p
+$$
+Thus, the variance of $X$ is given
+$$
+\begin{aligned} \operatorname{Var}(X) &=E\left[X^{2}\right]-(E[X])^{2} \\ &=n(n-1) p^{2}+n p-n^{2} p^{2} \\ &=n p(1-p) \end{aligned}
+$$
+
+##### The Poisson Distribution with Mean $\lambda$
+
+$$
+\begin{aligned} \phi(t) &=E\left[e^{t X}\right] \\ &=\sum_{n=0}^{\infty} \frac{e^{t n} e^{-\lambda} \lambda^{n}}{n !} \\ &=e^{-\lambda} \sum_{n=0}^{\infty} \frac{\left(\lambda e^{t}\right)^{n}}{n !} \\ &=e^{-\lambda} e^{\lambda e^{t}} \\ &=\exp \left\{\lambda\left(e^{t}-1\right)\right\} \end{aligned}
+$$
+
+Differentiation yields
+$$
+\begin{aligned} \phi^{\prime}(t) &=\lambda e^{t} \exp \left\{\lambda\left(e^{t}-1\right)\right\} \\ \phi^{\prime \prime}(t) &=\left(\lambda e^{t}\right)^{2} \exp \left\{\lambda\left(e^{t}-1\right)\right\}+\lambda e^{t} \exp \left\{\lambda\left(e^{t}-1\right)\right\} \end{aligned}
+$$
+and so 
+$$
+\begin{aligned} E[X] &=\phi^{\prime}(0)=\lambda \\ E\left[X^{2}\right] &=\phi^{\prime \prime}(0)=\lambda^{2}+\lambda \\ \operatorname{Var}(X) &=E\left[X^{2}\right]-(E[X])^{2} =\lambda \end{aligned}
+$$
+
+##### Moment Generating Function for Some Common Distributions.
+
+|     Discrete probability distribution      |                          PMF,$p(x)$                          |       Moment Generating Function,$\phi(x)$        | Mean          | Variance            |
+| :----------------------------------------: | :----------------------------------------------------------: | :-----------------------------------------------: | ------------- | ------------------- |
+|            Binomial with $n,p$             | $\begin{array}{c}{\left( \begin{array}{l}{n} \\ {x}\end{array}\right) p^{x}(1-p)^{n-x}} \\ {x=0,1, \ldots, n}\end{array}$ |         $\left(p e^{t}+(1-p)\right)^{n}$          | $np$          | $np(1-p)$           |
+|         Poisson with  $\lambda>0$          | $\begin{array}{l}{e^{-\lambda} \frac{\lambda^{x}}{x !}} \\ {x=0,1,2, \ldots}\end{array}$ | $\exp \left\{\lambda\left(e^{t}-1\right)\right\}$ | $\lambda$     | $\lambda$           |
+| Geometric with $0 \leqslant p \leqslant 1$ | $\begin{array}{c}{p(1-p)^{x-1}} \\ {x=1,2, \dots}\end{array}$ |          $\frac{p e^{t}}{1-(1-p) e^{t}}$          | $\frac{1}{p}$ | $\frac{1-p}{p^{2}}$ |
+
+| Continuous probability distribution |                          PMF,$p(x)$                          |       Moment Generating Function,$\phi(x)$        | Mean          | Variance            |
+| ---- | ---- | ---- | ---- | ---- |
+| Uniform over $(a,b)$ | $f(x)=\left\{\begin{array}{ll}{\frac{1}{b-a},} & {a<x<b} \\ {0,} & {\text { otherwise }}\end{array}\right.$ | $\frac{e^{t b}-e^{t a}}{t(b-a)}$ | $\frac{a+b}{2}$ | $\frac{(b-a)^{2}}{12}$ |
+| Exponential with $\lambda>0$ | $f(x)=\left\{\begin{array}{ll}{\lambda e^{-\lambda x}, x>0} \\ {0, \quad x<0}\end{array}\right.$ | $\frac{\lambda}{\lambda-t}$ | $\frac{1}{\lambda}$ | $\frac{1}{\lambda^{2}}$ |
+| Gamma with $(n,\lambda)$ | $f(x)=\left\{\begin{array}{ll}{\frac{\lambda e^{-\lambda x}(\lambda x)^{n-1}}{(n-1) !},} & {x \geqslant 0} \\ {0,} & {x<0}\end{array}\right.$ | $(\frac{\lambda}{\lambda-t})^n$ | $\frac{n}{\lambda}$ | $\frac{n}{\lambda^{2}}$ |
+| Normal with ($\mu$,$\sigma^2$) | $\begin{aligned} f(x)=& \frac{1}{\sqrt{2 \pi} \sigma} \ \exp \left\{-(x-\mu)^{2} / 2 \sigma^{2}\right\} \\ &-\infty<x<\infty \end{aligned}$ | $\exp \left\{\mu t+\frac{\sigma^{2} t^{2}}{2}\right\}$ | $\mu$ | $\sigma^2$ |
+
+Another important result is that **the moment generating function uniquely determines the distribution.** That is, there exists a one-to-one correspondence between the moment generating function and the distribution function of a random variable.
+
+#### Poisson Paradigm
+
+The number of successes in n trials that are either independent or at most weakly dependent is, when the trial success probabilities are all small, approximately a Poisson random variable.
+
+To see that this is the case, suppose that the trials are independent, with trial $i$ resulting in a success with probability $p_i$, where the $p_i$ are small.
+
+Let $X_i$
+$$
+X_{i}=\left\{\begin{array}{ll}{1,} & {\text { if the } i \text { th trial is a success }} \\ {0,} & {\text { otherwise }}\end{array}\right.
+$$
+and X
+$$
+X=\sum_{i=1}^{n} X_{i}
+$$
+Using that $X_i$ is a Bernoulli random variable, its moment generating function is
+$$
+E\left[e^{t X_{i}}\right]=p_{i} e^{t}+1-p_{i}=1+p_{i}\left(e^{t}-1\right)
+$$
+and
+$$
+e^{x} \approx 1+x
+$$
+
+$$
+E\left[e^{t X_{i}}\right]=1+p_{i}\left(e^{t}-1\right) \approx \exp \left\{p_{i}\left(e^{t}-1\right)\right\}
+$$
+
+Because the moment generating function of a sum of independent random variables is the product of their moment generating functions, the preceding implies that
+$$
+E\left[e^{t X}\right] \approx \prod_{i=1}^{n} \exp \left\{p_{i}\left(e^{t}-1\right)\right\}=\exp \left\{\sum_{i} p_{i}\left(e^{t}-1\right)\right\}
+$$
+The right side is the moment generating function of a Poisson random variable with $\sum_{i} p$.

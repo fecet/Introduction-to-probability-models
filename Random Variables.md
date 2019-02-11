@@ -492,7 +492,17 @@ $$
 $$
 Thus, the moment generating function of $\sum _{i=1}^n X_n$ converges to the moment generating function of a (standard) normal random variable with mean 0 and variance 1. 
 
-Using this, it can be proven that the distribution function of the random variable $\frac{\sum _{i=1}^n X_n}{\sqrt n}$ converges to the standard normal distribution function $\Phi$.
+Using this, it can be proven that the distribution function of the random variable $\frac{\sum _{i=1}^n X_n}{\sqrt n}​$ converges to the standard normal distribution function $\Phi​$.
 $$
 P\left\{\frac{X_{1}-\mu+X_{2}-\mu+\cdots+X_{n}-\mu}{\sigma \sqrt{n}} \leqslant a\right\} \rightarrow \Phi(a)
 $$
+
+
+### Stochastic Processes
+
+A **Stochastic Processes** $\{X(t), t \in T\}$ is a collection of random variables. That is, for each $t \in T$, $X(t)$ is a random variable. As a result, we refer to $X(t)$ as the **state** of the process at time $t$.
+
+The set $T$ is called the **index set** of the process. When $T$ is a countable set the stochastic process is said to be a **discrete-time process**. If $T$ is an interval of the real line, the stochastic process is said to be a **continuous-time process​**.
+
+The **State space** of a stochastic process is defined as the set of all possible values that the random variables $X(t)$ can assume. A stochastic process is a family of random variables that describes the evolution through time of some process.
+

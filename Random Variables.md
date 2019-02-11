@@ -437,3 +437,62 @@ The prove is as follows:
 $$
 P\{X \geqslant a\} \leqslant \frac{E[X]}{a}
 $$
+ We give a proof for the case where $X$ is continuous with density $f$:
+$$
+\begin{aligned} E[X] &=\int_{0}^{\infty} x f(x) d x \\ &=\int_{0}^{a} x f(x) d x+\int_{a}^{\infty} x f(x) d x \\ & \geqslant \int_{a}^{\infty} x f(x) d x \\ & \geqslant \int_{a}^{\infty} a f(x) d x \\ &=a \int_{a}^{\infty} f(x) d x \\ &=a P\{X \geqslant a\} \end{aligned}
+$$
+#### Chebyshev’s Inequality
+
+If $X$ is a random variable with mean $μ$ and variance $σ^2$.
+
+Since ${(X-\mu)}^2$ is a nonnegative random variable, we can apply Markov’s inequality (with $a = k^2$) to obtain
+$$
+P\left\{(X-\mu)^{2} \geqslant k^{2}\right\} \leqslant \frac{E\left[(X-\mu)^{2}\right]}{k^{2}}
+$$
+Note $(X-\mu)^{2} \geqslant k^{2}$ if and only if $|X-\mu| \geqslant k$,  the preceding is equivalent to
+$$
+P\{|X-\mu| \geqslant k\} \leqslant \frac{E\left[(X-\mu)^{2}\right]}{k^{2}}=\frac{\sigma^{2}}{k^{2}}
+$$
+the above formula is **Chebyshev’s inequality**
+
+#### Strong Law of Large Numbers
+
+Let $X_1,X_2,\cdots$ be a sequence of independent random variables having a common distribution, and let $E(X_i)=\mu​$. Then, with probability 1,
+$$
+\underset{n\to \infty }{\text{lim}}\frac{\sum _{i=1}^n X_n}{n}=\mu
+$$
+
+#### Central Limit Theorem
+
+Let $X_1,X_2,\cdots​$ be a sequence of independent, identically distributed random variables, each with mean $\mu​$ and variance $\sigma^2​$. Then the distribution of
+$$
+\frac{\sum _{i=1}^n X_n-n \mu}{\sigma \sqrt{n}}
+$$
+tends to the standard normal as $n \rightarrow \infty​$. That is $\sum _{i=1}^n X_n​$ is a Normal random variables with mean $n \mu​$ and variance $n \sigma^2​$.
+
+A heuristic proof of the Central Limit theorem is as follows, suppose the $X_i$ is a random variable with mean $\mu$ and variance $\sigma^2$, and let $E(e^{tx}) $ denote their common moment generating function. Then, the moment generating function of $\frac{\sum _{i=1}^n X_n}{\sqrt n}$ is
+$$
+\begin{aligned} E\left[\exp \left\{t\left(\frac{X_{1}+\cdots+X_{n}}{\sqrt{n}}\right)\right\}\right] &=E\left[e^{t X_{1} / \sqrt{n}} e^{t X_{2} / \sqrt{n}} \cdots e^{t X_{n} / \sqrt{n}}\right] \\ &=\left(E\left[e^{t X / \sqrt{n}}\right]\right)^{n} \quad \text { by independence } \end{aligned}
+$$
+For $n$ large, we obtain from the Taylor series expansion of $e^y$
+$$
+e^{t X / \sqrt{n}} \approx 1+\frac{t X}{\sqrt{n}}+\frac{t^{2} X^{2}}{2 n}
+$$
+Taking expectations
+$$
+\begin{aligned} E\left[e^{t X / \sqrt{n}}\right] & \approx 1+\frac{t E[X]}{\sqrt{n}}+\frac{t^{2} E\left[X^{2}\right]}{2 n} \\ &=1+\frac{t^{2}}{2 n} \quad \text { because } E[X]=0, E\left[X^{2}\right]=1 \end{aligned}
+$$
+Therefore, we obtain that  when $n$ is large
+$$
+E\left[\exp \left\{t\left(\frac{X_{1}+\cdots+X_{n}}{\sqrt{n}}\right)\right\}\right] \approx\left(1+\frac{t^{2}}{2 n}\right)^{n}
+$$
+Further more, when $n$ tends to $\infty$
+$$
+\lim _{n \rightarrow \infty} E\left[\exp \left\{t\left(\frac{X_{1}+\cdots+X_{n}}{\sqrt{n}}\right)\right\}\right]=e^{t^{2} / 2}
+$$
+Thus, the moment generating function of $\sum _{i=1}^n X_n$ converges to the moment generating function of a (standard) normal random variable with mean 0 and variance 1. 
+
+Using this, it can be proven that the distribution function of the random variable $\frac{\sum _{i=1}^n X_n}{\sqrt n}$ converges to the standard normal distribution function $\Phi$.
+$$
+P\left\{\frac{X_{1}-\mu+X_{2}-\mu+\cdots+X_{n}-\mu}{\sigma \sqrt{n}} \leqslant a\right\} \rightarrow \Phi(a)
+$$

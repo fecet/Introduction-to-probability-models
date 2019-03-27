@@ -102,15 +102,47 @@ $$
 
 #### 指数随机变量
 
+假设 $X^*$ 为以 $\lambda t$ 为参数的泊松随机变量，则 $\lambda$ 表示该事件发生的*频率*。令 $X$ 表示该事件发生的间隔，则若$X>t$，意味着 $t$ 时间内，$X=0$。
+$$
+P(X>t)=P(X^*=0)=\frac{(\lambda t)^{0} e^{-\lambda t}}{0 !}=e^{-\lambda t}
+$$
+所以它的累计分布函数为：
+$$
+F(a)=1-P(X>a)=1-e^{-\lambda a}
+$$
+求导可得它的概率密度函数：
+$$
+f(x)=\left\{\begin{array}{l}{\lambda \mathrm{e}^{-\lambda x}}&x\ge0 \\ {0}&x<0\end{array}\right.
+$$
 
+####  伽马随机变量
 
+伽马随机变量是$n$个以$\lambda$ 为参数的指数随机变量的和的分布。概率密度函数为：
+$$
+f(x)=\left\{\begin{array}{l}{\frac{\lambda \mathrm{e}^{-\lambda x}(\lambda x)^{\alpha-1}}{\Gamma(\alpha)}}&x\ge0 \\ {0}&x<0\end{array}\right.
+$$
+其中
+$$
+\Gamma(\alpha)=\int_{0}^{\infty} \mathrm{e}^{-x} x^{\alpha-1} \mathrm{d} x
+$$
 
+#### 正态随机变量
 
+如果 $X$ 的密度由：
+$$
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{-(x-\mu)^{2} / 2 \sigma^{2}}, \quad-\infty<x<\infty
+$$
+给出，则称 $X​$ 是具有参数 $ \mu​$ 和 $\sigma^2​$ 的正态随机变量。
 
+如果 $X$ 以参数 $ \mu$ 和 $\sigma^2$ 的正态地分布，那么 $Y=\alpha X+ \beta$ 以参数 $\alpha \mu+\beta$ 和 $\alpha ^2 \sigma^2$ 正态地分布。
+$$
+F_{Y}(a)=\mathrm{P}\{\hat{Y} \leqslant a\}=\mathrm{P}\{\alpha X+\beta \leqslant a\}=\mathrm{P}\left\{X \leqslant \frac{a-\beta}{\alpha}\right\}=F_{X}\left(\frac{a-\beta}{\alpha}\right)
+$$
+代入CDF：
+$$
+F_Y(a)=\int_{-\infty}^{(a-\beta) / \alpha} \frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{-(x-\mu)^{2} / 2 \sigma^{2}} \mathrm{d} x
+$$
+作换元 $y=\alpha x+\beta$:
+$$
 
-
-
-
-
-
-
+$$

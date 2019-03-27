@@ -63,9 +63,23 @@ $$
 \sum_{n=1}^{\infty} p(n)=p \sum_{n=1}^{\infty}(1-p)^{n-1}=1
 $$
 
+下面计算它的期望：
+$$
+E[x]=\sum_{n=1}^{\infty} n p(1-p)^{n-1}=p \sum_{n=1}^{\infty} n q^{n-1}
+$$
+其中 $q=1-p$，注意到
+$$
+n q^{n-1}=\frac{\mathrm{d}}{\mathrm{d} q}\left(q^{n}\right)
+$$
+结合导数的可加性：
+$$
+E[X]=p \sum_{n=1}^{\infty} \frac{\mathrm{d}}{\mathrm{d} q}\left(q^{n}\right)=p \frac{\mathrm{d}}{\mathrm{d} q}\left(\sum_{n=1}^{\infty} q^{n}\right)=p \frac{\mathrm{d}}{\mathrm{d} q}\left(\frac{q}{1-q}\right)=\frac{p}{(1-q)^{2}}=\frac{1}{p}
+$$
+
+
 #### 泊松随机变量
 
-假设 $X^*$ 为具有参数 $(n,p)$ 的二项随机变量。当 $n$ 趋近于无穷大：
+假设 $X^*​$ 为具有参数 $(n,p)​$ 的二项随机变量。当 $n​$ 趋近于无穷大：
 $$
 p(k)=\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k}
 $$
@@ -88,6 +102,16 @@ $$
 P\{X=i\}\approx \mathrm{e}^{-\lambda} \frac{\lambda^{i}}{i !}
 $$
 将其中的约等号换成等号，这样的$X$称为泊松随机变量。
+
+我们可以如下地计算它的期望：
+$$
+E[X]=\sum_{i=0}^{\infty} \frac{i \mathrm{e}^{-\lambda} \lambda^{i}}{i !}=\sum_{i=1}^{\infty} \frac{\mathrm{e}^{-\lambda} \lambda^{i}}{(i-1) !}=\lambda \mathrm{e}^{-\lambda} \sum_{i=1}^{\infty} \frac{\lambda^{i-1}}{(i-1) !}
+$$
+替换哑变量：
+$$
+E(X)=\lambda e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^{k}}{k !}
+$$
+
 
 ### 连续随机变量
 

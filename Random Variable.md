@@ -148,6 +148,12 @@ $$
 F(x)=\left\{\begin{array}{c}{\frac{1}{b-a},}&{a<x<b} \\ {0,} & {其他}\end{array}\right.
 $$
 
+它的期望为：
+$$
+E[x]=\int_{\alpha}^{\beta} \frac{x}{\beta-\alpha} \mathrm{d} x=\frac{\beta+\alpha}{2}
+$$
+
+
 #### 指数随机变量
 
 假设 $X^*$ 为以 $\lambda t$ 为参数的泊松随机变量，则 $\lambda$ 表示该事件发生的*频率*。令 $X$ 表示该事件发生的间隔，则若$X>t$，意味着 $t$ 时间内，$X=0$。
@@ -162,8 +168,20 @@ $$
 $$
 f(x)=\left\{\begin{array}{l}{\lambda \mathrm{e}^{-\lambda x}}&x\ge0 \\ {0}&x<0\end{array}\right.
 $$
+计算它的期望：
+$$
+\mathrm{E}[X]=\int_{0}^{\infty} x \lambda \mathrm{e}^{-\lambda x} \mathrm{d} x
+$$
+利用分部积分，我们有：
+$$
+\int \lambda  x e^{-\lambda  x} \, dx=-xe^{-\lambda x}-\frac{e^{-\lambda x }}{\lambda }
+$$
+所以：
+$$
+\mathrm{E}[X]=-x\left.\mathrm{e}^{-\lambda x}\right|_{0} ^{\infty}-\left.\frac{\mathrm{e}^{-\lambda x}}{\lambda}\right|_{0} ^{\infty}=\frac{1}{\lambda}
+$$
 
-####  伽马随机变量
+#### 伽马随机变量
 
 伽马随机变量是$n$个以$\lambda$ 为参数的指数随机变量的和的分布。概率密度函数为：
 $$

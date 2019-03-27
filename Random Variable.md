@@ -15,6 +15,10 @@ $$
 $$
 p(a)=P\{X=a\}
 $$
+它的**期望**为：
+$$
+E[X]=\sum_{x : p(x)>0} x p(x)
+$$
 下面介绍一些常见的随机变量：
 
 #### 伯努利随机变量
@@ -25,12 +29,24 @@ $$
 $$
 这样的 $X$ 称为伯努利随机变量
 
+容易计算伯努利随机变量的期望：
+$$
+\mathrm{E}[\mathrm{X}]=0(1-p)+1(p)=p
+$$
+
+
 #### 二项随机变量
 
 假设有 $n​$ 个参数为 $p​$ 的伯努利随机变量，以 $X​$ 记为它们的和，那么 $X​$ 称为具有参数 $(n,p)​$ 的二项随机变量。它的概率质量函数为：
 $$
 p(i)=\left( \begin{array}{c}{n} \\ {i}\end{array}\right) p^{i}(1-p)^{n-i}, \quad i=0,1, \cdots, n
 $$
+
+它的期望为：
+$$
+\begin{aligned} \mathrm{E}[X] &=\sum_{i=0}^{n} i p(i)=\sum_{i=0}^{n} i \left( \begin{array}{c}{n} \\ {i}\end{array}\right) p^{i}(1-p)^{n-i}=\sum_{i=1}^{n} \frac{i n !}{(n-i) ! i !} p^{i}(1-p)^{n-i} \\ &=\sum_{i=1}^{n} \frac{n !}{(n-i) !(i-1) !} p^{i}(1-p)^{n-i}=n p \sum_{i=1}^{n} \frac{(n-1) !}{(n-i) !(i-1) !} p^{i-1}(1-p)^{n-i} \\ &=n p \sum_{k=0}^{n-1} \left( \begin{array}{c}{n-1} \\ {k}\end{array}\right) p^{k}(1-p)^{n-1-k}=n p[p+(1-p)]^{n-1} \\ &=n p \end{aligned}
+$$
+
 
 #### 几何随机变量
 
@@ -134,7 +150,7 @@ f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{-(x-\mu)^{2} / 2 \sigma^{2}}, \qu
 $$
 给出，则称 $X​$ 是具有参数 $ \mu​$ 和 $\sigma^2​$ 的正态随机变量。
 
-如果 $X$ 以参数 $ \mu$ 和 $\sigma^2$ 的正态地分布，那么 $Y=\alpha X+ \beta$ 以参数 $\alpha \mu+\beta$ 和 $\alpha ^2 \sigma^2$ 正态地分布。
+如果 $X$ 以参数 $ \mu$ 和 $\sigma^2$ 的正态地分布，那么 $Y=\alpha X+ \beta$ 以参数 $\alpha \mu+\beta$ 和 $\alpha ^2 \sigma^2$ 正态地分布。这是由于：
 $$
 F_{Y}(a)=\mathrm{P}\{\hat{Y} \leqslant a\}=\mathrm{P}\{\alpha X+\beta \leqslant a\}=\mathrm{P}\left\{X \leqslant \frac{a-\beta}{\alpha}\right\}=F_{X}\left(\frac{a-\beta}{\alpha}\right)
 $$
@@ -144,5 +160,14 @@ F_Y(a)=\int_{-\infty}^{(a-\beta) / \alpha} \frac{1}{\sqrt{2 \pi} \sigma} \mathrm
 $$
 作换元 $y=\alpha x+\beta$:
 $$
+\frac{dy}{dx}=\alpha
+$$
 
+$$
+F_Y(a)=\int_{-\infty}^{(a-\beta) / \alpha} \frac{1}{\sqrt{2 \pi} \sigma}\frac{1}{a} \mathrm{e}^{-\frac{\left(\frac{y-b}{a}-\mu \right)^2}{2 \sigma ^2}} \mathrm{d} x
+$$
+
+整理得：
+$$
+f_{Y}(v)=\frac{1}{\sqrt{2 \pi} \alpha \sigma} \exp \left\{\frac{-(y-(\alpha \mu+\beta))^{2}}{2(\alpha \sigma)^{2}}\right\}
 $$

@@ -111,11 +111,15 @@ $$
 $$
 E(X)=\lambda e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^{k}}{k !}
 $$
+注意到，$\sum_{k=0}^{\infty} \lambda^{k} / k !=\mathrm{e}^{\lambda}$，所以
+$$
+E[x]=\lambda
+$$
 
 
 ### 连续随机变量
 
-对于连续的随机变量，如果我们也同样地定义它的概率质量函数，它的质量往往为$0$，为此，定义它的概率密度函数。
+对于连续的随机变量，如果我们也同样地定义它的概率质量函数，它的质量往往为$0​$，为此，定义它的概率密度函数。
 $$
 f(a)=\lim_{x\rightarrow a}\frac{P(a\leq X\leq x)}{x-a}
 $$
@@ -130,6 +134,10 @@ $$
 从而对于任意集合$B$:
 $$
 \mathrm{P}\{X \in B\}=\int_{B} f(x) \mathrm{d} x
+$$
+由此可以定义连续随机变量 $X$ 的期望值：
+$$
+\mathrm{E}[X]=\int_{-\infty}^{\infty} x f(x) \mathrm{d} x
 $$
 下面介绍一些常见的随机变量：
 

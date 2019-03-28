@@ -19,6 +19,20 @@ $$
 $$
 E[X]=\sum_{x : p(x)>0} x p(x)
 $$
+期望可以作用于关于随机变量 $X$ 的函数, 
+$$
+\mathrm{E}[g(X)]=\sum_{x : p(x)>0} g(x) p(x)
+$$
+所以
+$$
+\mathrm{E}[a X+b]=a \mathrm{E}[X]+b
+$$
+随机变量 $X$ 的期望值也成为**均值**或 $X$ 的一阶矩. $E[X^n]$ 称为 $X$ 的 **$n$ 阶矩**.
+
+我们还关心随机变量的方差, 它定义为
+$$
+\operatorname{Var}(X)=\mathrm{E}\left[(X-\mathrm{E}[X])^{2}\right]
+$$
 下面介绍一些常见的随机变量：
 
 #### 伯努利随机变量

@@ -33,6 +33,14 @@ $$
 $$
 \operatorname{Var}(X)=\mathrm{E}\left[(X-\mathrm{E}[X])^{2}\right]
 $$
+假设 $X$ 连续, 具有密度 $f$, 并记 $E[X]=\mu$, 那么:
+$$
+\begin{aligned} \operatorname{Var}(X) &=\mathrm{E}\left[(X-\mu)^{2}\right]=\mathrm{E}\left[X^{2}-2 \mu X+\mu^{2}\right] \\ &=\int_{-\infty}^{\infty}\left(x^{2}-2 \mu x+\mu^{2}\right) f(x) \mathrm{d} x \\ &=\int_{-\infty}^{\infty} x^{2} f(x) \mathrm{d} x-2 \mu \int_{-\infty}^{\infty} x f(x) \mathrm{d} x+\mu^{2} \int_{-\infty}^{\infty} f(x) \mathrm{d} x \\ &=\mathrm{E}\left[X^{2}\right]-2 \mu \mu+\mu^{2}=\mathrm{E}\left[X^{2}\right]-\mu^{2} \end{aligned}
+$$
+这样我们得到:
+$$
+\operatorname{Var}(X)=\mathrm{E}\left[X^{2}\right]-(\mathrm{E}[X])^{2}
+$$
 下面介绍一些常见的随机变量：
 
 #### 伯努利随机变量

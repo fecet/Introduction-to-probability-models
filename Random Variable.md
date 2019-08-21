@@ -59,7 +59,7 @@ $$
 
 #### 二项随机变量
 
-假设有 $n​$ 个参数为 $p​$ 的伯努利随机变量，以 $X​$ 记为它们的和，那么 $X​$ 称为具有参数 $(n,p)​$ 的二项随机变量。它的概率质量函数为：
+假设有 $n$ 个参数为 $p$ 的伯努利随机变量，以 $X$ 记为它们的和，那么 $X$ 称为具有参数 $(n,p)$ 的二项随机变量。它的概率质量函数为：
 $$
 p(i)=\left( \begin{array}{c}{n} \\ {i}\end{array}\right) p^{i}(1-p)^{n-i}, \quad i=0,1, \cdots, n
 $$
@@ -105,19 +105,19 @@ $$
 $$
 p(k)=\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k}
 $$
-令$\lambda=np$，则：
+令$\lambda=np​$，则：
 $$
 \lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k}=\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) （\frac{\mu}{n}）^{k}(1-\frac{\mu}{n})^{n-k}
 $$
 注意到：
 $$
-\left( \begin{array}{c}{n} \\ {k}\end{array}\right) （\frac{\mu}{n}）^{k}(1-\frac{\mu}{n})^{n-k}=\frac{n(n-1) \cdots(n-i+1)}{n^{i}} \frac{\lambda^{i}}{i !} \frac{(1-\lambda / n)^{n}}{(1-\lambda / n)^{i}}
+\left( \begin{array}{c}{n} \\ {k}\end{array}\right) （\frac{\mu}{n}）^{k}(1-\frac{\mu}{n})^{n-k}=\frac{n(n-1) \cdots(n-k+1)}{n^{k}} \frac{\lambda^{k}}{k !} \frac{(1-\lambda / n)^{n}}{(1-\lambda / n)^{k}}
 $$
 且：
 $$
 \lim_{n\rightarrow \infty} \left(1-\frac{\lambda}{n}\right)^{n} = \mathrm{e}^{-\lambda}\\
-\lim_{n\rightarrow \infty} \frac{n(n-1) \cdots(n-i+1)}{n^{i}}=1\\
-\lim_{n\rightarrow \infty} \left(1-\frac{\lambda}{n}\right)^{i} = 1
+\lim_{n\rightarrow \infty} \frac{n(n-1) \cdots(n-k+1)}{n^{k}}=1\\
+\lim_{n\rightarrow \infty} \left(1-\frac{\lambda}{n}\right)^{k} = 1
 $$
 于是
 $$
@@ -133,7 +133,7 @@ $$
 $$
 E(X)=\lambda e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^{k}}{k !}
 $$
-注意到，$\sum_{k=0}^{\infty} \lambda^{k} / k !=\mathrm{e}^{\lambda}$，所以
+注意到，$\sum_{k=0}^{\infty} \lambda^{k} / k !=\mathrm{e}^{\lambda}​$，所以
 $$
 E[x]=\lambda
 $$

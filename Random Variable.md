@@ -45,7 +45,7 @@ $$
 
 #### 伯努利随机变量
 
-假定一个试验只能有 $0​$ 和 $1​$ 两种状态，那么$X​$的概率质量函数为：
+假定一个试验只能有 $0$ 和 $1$ 两种状态，那么$X$的概率质量函数为：
 $$
 \begin{array}{l}{p(0)=\mathrm{P}\{X=0\}=1-p} \\ {p(1)=\mathrm{P}\{X=1\}=p}\end{array}
 $$
@@ -72,11 +72,11 @@ $$
 
 #### 几何随机变量
 
-假设存在一串连续的伯努利随机变量，记为$X_1,X_2, \ldots,X_n​$, 令$X​$为：
+假设存在一串连续的伯努利随机变量，记为$X_1,X_2, \ldots,X_n$, 令$X$为：
 $$
 X=\min \left\{n>0 : X_{n}=1\right\}
 $$
-这样的 $X​$ 称为几何随机变量，它的概率质量函数为:
+这样的 $X$ 称为几何随机变量，它的概率质量函数为:
 $$
 p(n)=\mathrm{P}\{X=n\}=(1-p)^{n-1} p, \quad n=1,2, \cdots
 $$
@@ -101,11 +101,11 @@ $$
 
 #### 泊松随机变量
 
-假设 $X^*​$ 为具有参数 $(n,p)​$ 的二项随机变量。当 $n​$ 趋近于无穷大：
+假设 $X^*$ 为具有参数 $(n,p)$ 的二项随机变量。当 $n$ 趋近于无穷大：
 $$
 p(k)=\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k}
 $$
-令$\lambda=np​$，则：
+令$\lambda=np$，则：
 $$
 \lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k}=\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) （\frac{\mu}{n}）^{k}(1-\frac{\mu}{n})^{n-k}
 $$
@@ -133,7 +133,7 @@ $$
 $$
 E(X)=\lambda e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^{k}}{k !}
 $$
-注意到，$\sum_{k=0}^{\infty} \lambda^{k} / k !=\mathrm{e}^{\lambda}​$，所以
+注意到，$\sum_{k=0}^{\infty} \lambda^{k} / k !=\mathrm{e}^{\lambda}$，所以
 $$
 E[x]=\lambda
 $$
@@ -141,7 +141,7 @@ $$
 
 ### 连续随机变量
 
-对于连续的随机变量，如果我们也同样地定义它的概率质量函数，它的质量往往为$0​$，为此，定义它的概率密度函数。
+对于连续的随机变量，如果我们也同样地定义它的概率质量函数，它的质量往往为$0$，为此，定义它的概率密度函数。
 $$
 f(a)=\lim_{x\rightarrow a}\frac{P(a\leq X\leq x)}{x-a}
 $$
@@ -220,7 +220,7 @@ $$
 $$
 f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{-(x-\mu)^{2} / 2 \sigma^{2}}, \quad-\infty<x<\infty
 $$
-给出，则称 $X​$ 是具有参数 $ \mu​$ 和 $\sigma^2​$ 的正态随机变量。
+给出，则称 $X$ 是具有参数 $ \mu$ 和 $\sigma^2$ 的正态随机变量。
 
 如果 $X$ 以参数 $ \mu$ 和 $\sigma^2$ 的正态地分布，那么 $Y=\alpha X+ \beta$ 以参数 $\alpha \mu+\beta$ 和 $\alpha ^2 \sigma^2$ 正态地分布。这是由于：
 $$

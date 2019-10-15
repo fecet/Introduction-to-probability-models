@@ -32,7 +32,7 @@ $$
 
 ## Computing Expectations by Conditioning
 
-Denote $E[X | Y]​$ as a function:
+Denote $E[X | Y]$ as a function:
 $$
 E[X | y]=E[X | Y=y]
 $$

@@ -107,11 +107,11 @@ p(k)=\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\rig
 $$
 令$\lambda=np$，则：
 $$
-\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k}=\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) （\frac{\mu}{n}）^{k}(1-\frac{\mu}{n})^{n-k}
+\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) p^{k}(1-p)^{n-k}=\lim_{n\rightarrow \infty} \left( \begin{array}{c}{n} \\ {k}\end{array}\right) （\frac{\lambda}{n}）^{k}(1-\frac{\lambda}{n})^{n-k}
 $$
 注意到：
 $$
-\left( \begin{array}{c}{n} \\ {k}\end{array}\right) （\frac{\mu}{n}）^{k}(1-\frac{\mu}{n})^{n-k}=\frac{n(n-1) \cdots(n-k+1)}{n^{k}} \frac{\lambda^{k}}{k !} \frac{(1-\lambda / n)^{n}}{(1-\lambda / n)^{k}}
+\left( \begin{array}{c}{n} \\ {k}\end{array}\right) （\frac{\lambda}{n}）^{k}(1-\frac{\lambda}{n})^{n-k}=\frac{n(n-1) \cdots(n-k+1)}{n^{k}} \frac{\lambda^{k}}{k !} \frac{(1-\lambda / n)^{n}}{(1-\lambda / n)^{k}}
 $$
 且：
 $$

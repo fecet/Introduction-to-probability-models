@@ -78,6 +78,8 @@ $$
 \mathrm{P}\left\{X_{n}=j\right\}=\pi_{j}
 $$
 
+### MC生成的数据模型的平均转移次数
+
 为确定模型 $i_{1}, \cdots, i_{k}$ 出现的转移次数, 记
 $$
 N(i_1,i_2,\cdots,i_k)=\min\left\{n \geqslant k: X_{n-k+1}=i_{1}, \cdots, X_{n}=i_{k}\right\}
@@ -91,4 +93,63 @@ $$
 \mu\left(i, i_{1}\right)=1+\sum_{j \neq i_{1}} P_{i, j} \mu\left(j, i_{1}\right), \quad i \geqslant 0
 $$
 这来自于对于第一次转出取条件.
+
+下面考虑对于一个MC, 生成一个与之相伴的 MC, 称之为 $k$ 链, $k$ 链的状态是原MC之前 $k$ 个状态的数组.
+
+> 例如 $k=3$, $X_2=4,X_3=1,X_4=1$, $k_4=(4,1,1)$
+
+记 $k$ 链的平稳概率为 $\pi\left(j_{1}, \cdots, j_{k}\right)$
+$$
+\pi\left(j_{1}, \cdots, j_{k}\right)=\pi_{j_{1}} P_{j_{1}, j_{2}} \cdots P_{j_{k-1}, j_{k}}
+$$
+于是
+$$
+\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | k_{0}=(i_{1}, i_{2}, \cdots, i_{k})\right]=\frac{1}{\pi\left(i_{1}, \cdots, i_{k}\right)}
+$$
+如果该模型前后不重叠, 则
+$$
+\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | k_{0}=(i_{1}, i_{2}, \cdots, i_{k})\right]=\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | X_{0}=i_{k}\right]
+$$
+否则, 若该模型有大小为 $j$ 的重叠, 即
+$$
+\left(i_{k-j+1}, \cdots, i_{k}\right)=\left(i_{1}, \cdots, i_{j}\right), \quad j<k
+$$
+那么
+$$
+\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | k_{0}=(i_{1}, i_{2}, \cdots, i_{k})\right]=\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | X_{1}=i_{1},X_2=i_2,\cdots, X_j=i_j\right]
+$$
+对于不重叠的情况而言
+$$
+\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | X_{0}=i_{k}\right]=\mu\left(i_{k}, i_{1}\right)+\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | X_{1}=i_{1}\right]
+$$
+所以
+$$
+\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | X_{0}=r\right]=\mu\left(r, i_{1}\right)+\frac{1}{\pi\left(i_{1}, \cdots, i_{k}\right)}-\mu\left(i_{k}, i_{1}\right)
+$$
+对于重叠的情况, 由于
+$$
+N\left(i_{1}, i_{2}, \cdots, i_{k}\right)=N\left(i_{1}, \cdots, i_{j}\right)+N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | X_{1}=i_{1},X_2=i_2,\cdots ,X_j=i_j
+$$
+所以有
+$$
+\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{k}\right) | X_{0}=r\right]=\mathrm{E}\left[N\left(i_{1}, i_{2}, \cdots, i_{j}\right) | X_{0}=r\right]+\frac{1}{\pi\left(i_{1}, \cdots, i_{k}\right)}
+$$
+由于 $j<k$, 可以在有限次内转化为非重叠的情况.
+
+
+
+> 设 $r$ 为在状态空间上定义的有界函数, 那么
+> $$
+> \lim _{N \rightarrow \infty} \frac{\sum_{n=1}^{N} r\left(X_{n}\right)}{N}=\sum_{j=0}^{\infty} r(j) \pi_{j}
+> $$
+
+假设 $a_j(N)$ 为MC在 $1,2,\cdots,N$ 时间内处于状态 $j$ 的时间, 则
+$$
+\sum_{n=1}^{N} r\left(X_{n}\right)=\sum_{j=0}^{\infty} a_{j}(N) r(j)
+$$
+注意到
+$$
+\lim_{N\to\infty}\frac{a_j(N)}{N}=\pi_j
+$$
+于是结论得证.
 

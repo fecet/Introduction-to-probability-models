@@ -98,7 +98,7 @@ $$
 
 > 例如 $k=3$, $X_2=4,X_3=1,X_4=1$, $k_4=(4,1,1)$
 
-记 $k$ 链的平稳概率为 $\pi\left(j_{1}, \cdots, j_{k}\right)$
+记 $k$ 链的平稳概率为 $\pi\left(j_{1}, \cdots, j_{k}\right)$
 $$
 \pi\left(j_{1}, \cdots, j_{k}\right)=\pi_{j_{1}} P_{j_{1}, j_{2}} \cdots P_{j_{k-1}, j_{k}}
 $$
@@ -152,4 +152,101 @@ $$
 \lim_{N\to\infty}\frac{a_j(N)}{N}=\pi_j
 $$
 于是结论得证.
+
+
+
+考虑一个特殊的二维随机游动模型,其
+$$
+P_{i,i+1}=p\\
+P_{i,i-1}=1-p
+$$
+特别地, $P_{0,1}=1$
+
+记随机变量 $N_{i,i+1}$ 为从状态 $i$ 至状态 $i+1$ 的时间
+
+则有
+$$
+N_{0,n}=\sum_{i=0}^{n-1}N_{i,i+1}
+$$
+同样令 $\mu(i,j)=E[N_{i,j}]$, 那么
+$$
+\mu(i,i+1)=1+\mu(i-1,i+1)q
+$$
+由二维随机游动的性质
+$$
+\mu(i-1,i+1)=E[N_{i-1,i}+N_{i,i+1}]
+$$
+所以
+$$
+\mu(i,i+1)=1+\left[\mu(i-1,i)+\mu(i,i+1)\right]q
+$$
+从而可得到
+$$
+\mu_{i}=\frac{1}{p} \sum_{j=0}^{i-1} \left(\frac{q}{p}\right)^{j}+\left(\frac{q}{p}\right)^{i}
+$$
+所以
+$$
+\mu(0,n)=\left\{\begin{array}{l}
+{n^2}&{ p=1/2} \\
+{1+\frac{2 \alpha^{n+1}-(n+1) \alpha^{2}+n-1}{(1-\alpha)^{2}}}&{ p=1/2}
+\end{array}\right.
+$$
+记
+$$
+\text{Var}(N_{i,i+1})=v_i
+$$
+由于诸 $N$ 之间相互独立, 所以有 $\text{Var}(N_{0,n})=\sum_{i=0}^{n-1}v_i$
+
+为了利用
+$$
+\text{Var}(Y)=\text{Var}(E\left[Y|X\right])-E\left[\text{Var}(Y|X)\right]
+$$
+对 $N_{i,i+1}$ 取条件
+$$
+N_{i,i+1}=\left\{\begin{array}{l}
+{1}&{状态i的下一个状态为i+1} \\
+{1+N_{i-1,i+1}}&{状态i的下一个状态为i-1}
+\end{array}\right.
+$$
+所以
+$$
+E[N_{i,i+1}|\text{Nextstate}=i+1]=1\\
+E[N_{i,i+1}|\text{Nextstate}=i-1]=1+\mu(i-1,i)+\mu(i,i+1)
+$$
+所以
+$$
+\text{Var}(E[N_{i,i+1}|\text{Nextstate}])=\text{Var}(E[N_{i,i+1}|\text{Nextstate}]-1)
+\\=E[(E[N_{i,i+1}|\text{Nextstate}]-1)^2]-E[E[N_{i,i+1}|\text{Nextstate}]-1]^2\\
+=pq\left[\mu(i-1,i)+\mu(i,i+1)\right]^2
+$$
+而
+$$
+\text{Var}[N_{i,i+1}|\text{Nextstate}=i+1]=0\\
+\text{Var}[N_{i,i+1}|\text{Nextstate}=i-1]=v_{i-1}+v_i
+$$
+所以
+$$
+E[\text{Var}[N_{i,i+1}|\text{Nextstate}]]=q(v_{i-1}+v_i)
+$$
+所以
+$$
+v_i=pq\left[\mu(i-1,i)+\mu(i,i+1)\right]^2-q(v_{i-1}+v_i)
+$$
+
+## 在暂态的停留时间
+
+假设一个 $MC$ 具有暂态集 $\{0,1,2,\cdots,t\}$,令
+$$
+\boldsymbol{P_T}=\left[ \begin{array}{cccc}{P_{00}} & {P_{01}} & {P_{02}} & {\cdots} \\ {P_{10}} & {P_{11}} & {P_{12}} & {\cdots} \\ {\vdots} & {\vdots} & {\vdots} \\ {P_{i 0}} & {P_{i 1}} & {P_{i 2}} & {\cdots} \\ {\vdots} & {\vdots} & {\vdots}
+\\
+{P_{t0}} & {P_{t1}} & {\cdots} & {P_{tt}} 
+\end{array}\right]
+$$
+对于暂态 $i,j$ 记 $s_{ij}$ 为开始时刻在状态 $i$ 的MC在状态 $j$ 停留的时间, 则
+$$
+s_{ij}=\sum_{k\in T} s_{kj}P_{ik}+\mathbb I_{i=j}
+$$
+注意当 $k$ 为常返态时, $s_{kj}=0$, 否则 $k,j$ 是互通的, 这违背了类的性质. 
+
+以 $S$ 记矩阵 $\{s_{ij\}$, 它与 $P_T$ 同形, 固有
 

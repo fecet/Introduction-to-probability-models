@@ -1,3 +1,7 @@
+---
+
+---
+
 #### Markov
 
 令$\left\{X_{n}, n=0,1,2, \cdots\right\}$是有限个值或可数有限个值的随机过程，它一般是非负数的集合，记
@@ -199,7 +203,7 @@ $$
 
 为了利用
 $$
-\text{Var}(Y)=\text{Var}(E\left[Y|X\right])-E\left[\text{Var}(Y|X)\right]
+\text{Var}(Y)=\text{Var}(E\left[Y|X\right])+E\left[\text{Var}(Y|X)\right]
 $$
 对 $N_{i,i+1}$ 取条件
 $$
@@ -230,7 +234,7 @@ E[\text{Var}[N_{i,i+1}|\text{Nextstate}]]=q(v_{i-1}+v_i)
 $$
 所以
 $$
-v_i=pq\left[\mu(i-1,i)+\mu(i,i+1)\right]^2-q(v_{i-1}+v_i)
+v_i=pq\left[\mu(i-1,i)+\mu(i,i+1)\right]^2+q(v_{i-1}+v_i)
 $$
 
 ## 在暂态的停留时间
@@ -257,9 +261,59 @@ $$
 $$
 S=(I-P_T)^{-1}
 $$
-记 $f_{ij}$ 为初始时刻为 $i$ 的MC到达 $j$ 的概率
+记 $f_{ij}$ 为初始时刻为 $i$ 的MC曾到达 $j$ 的概率
 
 则
 $$
-s_{ij}=E\[]
+s_{i j}=E[\text { time in } j | \text { start in } i, \text { ever transit to } j] f_{i j}+E[\text { time in } j | \text { start in } i, \text { never transit to } j]\left(1-f_{i j}\right)
 $$
+
+$$
+E[\text { time in } j | \text { start in } i, \text { ever transit to } j]\\=E[\text { time in $j$ before transit to $j$+time in $j$ after transit to } j | \text { start in } i, \text { ever transit to } j]\\=0+\mathbb I_{i=j}+s_{jj}
+$$
+
+同理可得
+$$
+E[\text { time in } j | \text { start in } i, \text { never transit to } j]=\mathbb I_{i=j}
+$$
+所以
+$$
+f_{i j}=\frac{s_{i j}-\mathbb I_{i, j}}{s_{j j}}
+$$
+
+## 分支过程
+
+考虑一个种群, 他们的每个个体以 $P_j$ 的概率生育 $j$ 个后代, 以 $X_n$ 记为 第 $n$ 代的大小, 所以 $\{X_n\}$ 是一个 $MC$
+
+由于显然有 $P_{00}=1$, 则 $0$ 为一个常返态, 又由于对于任意状态 $i>0$, 有
+$$
+P_{i0}=P_0^j>0
+$$
+ 这表明一切其它状态 $i$ 都是暂态, 否则他们将与状态 $0$ 互通, 但 $0$ 是一个吸收态.
+
+以随机向量 $Z$ 表示一个个体生育的子代数, 且有
+$$
+\begin{aligned}
+\mu&=E[Z]=\sum_{i=0}^{\infty} j P_{j}\\
+\sigma^{2}&=Var[Z]=\sum_{j=0}^{\infty}(j-\mu)^{2} P_{j}
+\end{aligned}
+$$
+于是
+$$
+X_{n}=\sum_{i=1}^{X_{n-1}} Z_{i}
+$$
+由于
+$$
+\begin{aligned}
+E\left[X_{n}\right] &=E\left[E\left[X_{n} | X_{n-1}\right]\right] \\
+&=E\left[E\left[\sum_{i=1}^{X_{n-1}} Z_{i} | X_{n-1}\right]\right] \\
+&=E\left[X_{n-1} \mu\right] \\
+&=\mu E\left[X_{n-1}\right]
+\end{aligned}
+$$
+假设 $X_0=1$, 则
+$$
+E[X_n]=\mu^n
+$$
+
+

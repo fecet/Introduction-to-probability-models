@@ -315,5 +315,52 @@ $$
 $$
 E[X_n]=\mu^n
 $$
+下面计算 $X_n$ 的方差, 由
+$$
+E[X_n|X_{n-1}]=\mu X_{n-1}\\
+Var[X_n|X_{n-1}]=\sigma^2 X_{n-1}
+$$
+和
+$$
+\operatorname{Var}\left(X_{n}\right)=E\left[\operatorname{Var}\left(X_{n} | X_{n-1}\right)\right]+\operatorname{Var}\left(E\left[X_{n} | X_{n-1}\right]\right)
+$$
+得到
+$$
+\operatorname{Var}\left(X_{n}\right)=\left\{\begin{array}{ll}
+{\sigma^{2} \mu^{n-1}\left(\frac{1-\mu^{n}}{1-\mu}\right),} & {\text { if } \mu \neq 1} \\
+{n \sigma^{2},} & {\text { if } \mu=1}
+\end{array}\right.
+$$
+下面计算该族群灭绝的概率, 记
+$$
+\pi_0=\lim_{n\to\infty}P(X_n=0|X_0=1)
+$$
+对第一代的数量取条件得到
+$$
+\pi_0=P((\lim_{n\to\infty}X_n|X_0=1)=0)=\sum_{j=0}^{\infty}P((\lim_{n\to\infty}X_n|X_0=1)=0|X_1=j)P_j
+$$
+由于第一代灭绝等价于第一代的每个个体的后代灭绝, 所以
+$$
+P((\lim_{n\to\infty}X_n|X_0=1)=0|X_1=j)=\pi_0^j
+$$
+所以
+$$
+\pi_0=\sum_{j=0}^{\infty}\pi_0^jP_j
+$$
+满足该方程的最小正解为 $\pi$
 
+## 时间可逆
 
+对于一个 $MC$ 的逆向过程, 定义它的转移概率为 $Q_{ij}$
+$$
+Q_{ij}=\mathrm{P}\left\{X_{m}=j | X_{m+1}=i\right\}=\frac{\mathrm{P}\left\{X_{m}=j\right\} \mathrm{P}\left\{X_{m+1}=i | X_{m}=j\right\}}{\mathrm{P}\left\{X_{m+1}=i\right\}}=\frac{\pi_jP_{ji}}{\pi_i}
+$$
+它也是一个 $MC$, 如果有
+$$
+Q_{ij}=P_{ij}
+$$
+则称它为时间可逆的, 这要求
+$$
+\pi_{i} P_{i j}=\pi_{j} P_{j i}
+$$
+事实上, 如果能找到一组 $\{\pi\}$, 使上式成立, 即可证明该 $MC$ 是时间可逆的

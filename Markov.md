@@ -157,6 +157,39 @@ $$
 $$
 于是结论得证.
 
+
+
+考虑一个 $MC$, 他在每个状态都等可能地进入一个小于它的状态:
+$$
+P_{ij}=\frac{1}{i-1}
+$$
+特别地, $P_{11}=1$, 显然它最终将进入状态 $1$, 下面以 $T_i$ 记从状态 $i$ 到状态 $1$ 需要转移的次数, 取条件于首次转移
+$$
+E[T_i]=\mathbb I_{i\neq1}+\frac{1}{i-1}\sum_{j-1}^{i-1} E[T_j]
+$$
+由 $E[T_1]=0$ 可以证明
+$$
+\mathrm{E}\left[T_{i}\right]=\sum_{j=1}^{i-1} 1 / j
+$$
+事实上, 考虑状态 $i$ 返回状态 1 的路径, 有
+$$
+T_i=\sum_{j=1}^{i-1} \mathbb I(\text {ever transit to $j$} )
+$$
+$\mathbb I(\text {ever transit to j} )$ 不依赖于之前的状态, 有
+$$
+\mathbb I(\text {ever transit to $j$} )=\frac{1}{j}
+$$
+所以
+$$
+Var[T_i]=Var\left[\sum_{j=1}^{i-1} \mathbb I(\text {ever transit to $j$} )\right]=\\\sum_{j=1}^{i-1} Var[ \mathbb I(\text {ever transit to $j$} )]=\sum_{j=1}^{i-1}\frac{1}{j}-\frac{1}{j^2}
+$$
+当 $i\to \infty$
+$$
+\mathrm{E}[T_i]\to \ln i\\
+Var[T_i] \to \ln i\\
+$$
+所以有 $T_i \sim N( \ln i, \ln i) $
+
 ## 随机游动
 
 考虑一个特殊的二维随机游动模型,其
@@ -379,5 +412,29 @@ P_{i_0i_k}^kP_{ii_k}=P_{ii_k}P_{i_ki_0}^k
 $$
 当 $k\to\infty$, $P_{i_0i_k}\to \pi_{i_k},P_{i_ki_0}\to \pi_{i_0}$, 即得.
 
+## Hastings-Metropolis 算法
 
+考虑数列 $b_i$, 它具有有限的和 $B=\sum b_i$, Hastings-Metropolis 算法可以生成一个MC, 具有平稳概率:
+$$
+\pi_i=\frac{b_i}{B}
+$$
+取任意一个 $MC$ 的转移概率矩阵 $\{Q_{ij}\}$, 当 $X_n=i$, 观测
 
+该MC在状态 $i$ 时的转移结果, 假设为 $j$, 那么生成的 $MC$ 将以 $\alpha_{ij}$ 的概率进入 $j$, 否则停留在 $i$. 于是可以写出生成的 $MC$ 的转移概率
+$$
+\begin{aligned}
+&P_{ij}=q_{i j} \alpha_{ij}\\
+&P_{ii}=q_{i i}+\sum_{k \neq i} q_{ii}(1-\alpha_{ik})
+\end{aligned}
+$$
+令
+$$
+\alpha_{ij}=\min \left(\frac{\pi_j q_{ji}}{\pi_i q_{ij}}, 1\right)
+$$
+这个 $MC$ 将是时间可逆的, 为了看出这一点, 可以将 $\pi_i=\frac{b_i}{B}$ 代入
+$$
+\pi_i q_{i j} \alpha_{ij}=\pi_j q_{ji } \alpha_{ji}
+$$
+得到
+
+## 吉布斯抽样

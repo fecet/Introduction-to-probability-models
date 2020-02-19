@@ -171,7 +171,7 @@ $$
 $$
 \mathrm{E}\left[T_{i}\right]=\sum_{j=1}^{i-1} 1 / j
 $$
-事实上, 考虑状态 $i$ 返回状态 1 的路径, 有
+事实上, 考虑状态 $i$ 返回状态 1 的路径, 有
 $$
 T_i=\sum_{j=1}^{i-1} \mathbb I(\text {ever transit to $j$} )
 $$
@@ -188,7 +188,7 @@ $$
 \mathrm{E}[T_i]\to \ln i\\
 Var[T_i] \to \ln i\\
 $$
-所以有 $T_i \sim N( \ln i, \ln i) $
+所以有 $T_i \sim N( \ln i, \ln i) $
 
 ## 随机游动
 
@@ -438,3 +438,31 @@ $$
 得到
 
 ## 吉布斯抽样
+
+为了生成一个与 $\boldsymbol{X}=\left(X_{1}, \cdots, X_{n}\right)$ 同分布的随机向量, 假设它具有pdf $p(x)x$
+
+考虑由Hastings-Metropolis 算法, 生成一个状态空间为  $\boldsymbol{x}=(x_1,\cdots, x_n)$ 且具有平稳概率 $p(x)$ 的MC, 它可以如下生成:
+
+当目前状态为 $x$, 等可能从 $1,2,\cdots,n$ 选取 $i$, 随后生成一个随机变量 $\mathscr X$, 它的质量函数为
+$$
+P(\mathscr X=x)=P(X_i=x|X_j=x_j\quad j\neq i)
+$$
+ 然后该 $MC$ 转移至状态 $\boldsymbol{y}=(x_1,\cdots, x,\cdots,x_n)$, 即将 $\boldsymbol{x}$ 中的第 $i$ 个分量转变为 $x$. 换言之, 取
+$$
+q_{\boldsymbol{x}\boldsymbol{y}}=\frac{P(X_i=x|X_j=x_j\quad j\neq i)}{n}=\frac{p(\boldsymbol{y})}{nP(X_j=x_j\quad j\neq i)}\propto p(\boldsymbol{y})
+$$
+此时
+$$
+\alpha_{\boldsymbol{x}\boldsymbol{y}}=\min \left(\frac{\pi_{\boldsymbol{y}} q_{\boldsymbol{y}\boldsymbol{x}}}{\pi_{\boldsymbol{x}} q_{\boldsymbol{x}\boldsymbol{y}}}, 1\right)=1
+$$
+
+## 马尔可夫决策过程
+
+假设我们将对一个 $MC$ 的状态 $X_n$ 采取对应的动作 $a_n$, 这个动作将对该 $MC$ 产生影响, 使得
+$$
+\mathrm{P}\left\{X_{n+1}=j | X_{0}, a_{0}, X_{1}, a_{1}, \cdots, X_{n}=i, a_{n}=a\right\}=P_{i j}(a)
+$$
+记动作的集合为 $A$, 我们以 $\beta_i(a)$ 的概率从 $A$ 中选取以作为应对状态 $i$ 的动作, 于是转移概率将是定义在策略上的函数
+$$
+P_{ij}(\beta)=\sum_{a \in A} P_{i j}(a)\beta_i(a)
+$$
